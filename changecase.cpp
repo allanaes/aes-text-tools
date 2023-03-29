@@ -11,12 +11,16 @@ ChangeCase::ChangeCase(QWidget *parent)
     // action button layout
     QPushButton *btnCopy = new QPushButton("Copy All");
     btnCopy->setIcon(QIcon(":/icons/copy.png"));
+
     QPushButton *btnPaste = new QPushButton("Paste");
     btnPaste->setIcon(QIcon(":/icons/paste.png"));
+
     QPushButton *btnTrim = new QPushButton("Trim");
     btnTrim->setIcon(QIcon(":/icons/trim.png"));
+
     QPushButton *btnClear = new QPushButton("Clear");
     btnClear->setIcon(QIcon(":/icons/clear.png"));
+
     actionLayout->addWidget(btnCopy);
     actionLayout->addWidget(btnPaste);
     actionLayout->addWidget(btnTrim);
@@ -30,6 +34,7 @@ ChangeCase::ChangeCase(QWidget *parent)
     QPushButton *btnLower = new QPushButton("lower case");
     QPushButton *btnProper = new QPushButton("Proper Case");
     QPushButton *btnSentence = new QPushButton("Sentence case");
+
     btnLayout->addWidget(btnUpper);
     btnLayout->addWidget(btnLower);
     btnLayout->addWidget(btnProper);
@@ -45,10 +50,13 @@ ChangeCase::ChangeCase(QWidget *parent)
     // select all and copy
     connect(btnCopy, SIGNAL(clicked(bool)), changeCaseTxtInput, SLOT(selectAll()));
     connect(btnCopy, SIGNAL(clicked(bool)), changeCaseTxtInput, SLOT(copy()));
+
+    // paste, trim, clear
     connect(btnPaste, SIGNAL(clicked(bool)), changeCaseTxtInput, SLOT(paste()));
     connect(btnTrim, SIGNAL(clicked(bool)), this, SLOT(toSimplified()));
     connect(btnClear, SIGNAL(clicked(bool)), changeCaseTxtInput, SLOT(clear()));
 
+    // change case
     connect(btnUpper, SIGNAL(clicked(bool)), this, SLOT(toUpperCase()));
     connect(btnLower, SIGNAL(clicked(bool)), this, SLOT(toLowerCase()));
     connect(btnProper, SIGNAL(clicked(bool)), this, SLOT(toProperCase()));
@@ -146,7 +154,7 @@ QString ChangeCase::subtituteCommon(const QString &text)
         txtNew.replace(" Kab ", ", Kab. ");
         txtNew.replace(" Kec ", ", Kec. ");
         txtNew.replace(" Rt ", " RT.");
-        txtNew.replace(" Rt. ", " RT.");
+        txtNew.replace(" Rt.", " RT.");
         txtNew.replace(" Rt. ", " RT.");
         txtNew.replace(" Rw ", " RW.");
         txtNew.replace(" Rw.", " RW.");
