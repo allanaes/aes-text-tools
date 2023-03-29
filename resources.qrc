@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="app.png">icons/at-sign.png</file>
+        <file alias="clear.png">icons/broom.png</file>
+        <file alias="paste.png">icons/clipboard-text.png</file>
+        <file alias="copy.png">icons/document-copy.png</file>
+        <file alias="cross.png">icons/cross-button.png</file>
+        <file alias="trim.png">icons/document-rename.png</file>
+    </qresource>
+</RCC>
